@@ -17,9 +17,45 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?php echo site_url('item') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Katalog Produk </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('category') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Kategori Produk </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('post') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Redaksi </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('client') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Partner </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('gallery') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Kegiatan </span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?php echo site_url('user') ?>">
                         <i class="mdi mdi-account-multiple"></i>
                         <span> Pengguna </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('setting') ?>">
+                        <i class="mdi mdi-settings"></i>
+                        <span> Pengaturan </span>
                     </a>
                 </li>
 
