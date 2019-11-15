@@ -5,8 +5,8 @@ body{
 a {
     text-decoration: none !important;
 }
-.nav-tek{
-    background-color: #ff6348;
+/* .nav-tek{
+    background-color: #fff;
 }
 
 .nav-tek .navbar-nav .active>.nav-link, .nav-tek .navbar-nav .nav-link.active, .nav-tek .navbar-nav .nav-link.show, .nav-tek .navbar-nav .show>.nav-link {
@@ -15,7 +15,7 @@ a {
 
 .navbar a {
     color: #fff;
-}
+} */
 
 .footer {
     background-color: #E9ECEF;
