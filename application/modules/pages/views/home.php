@@ -1,11 +1,11 @@
-<div class="jumbotron">
-    <div class="row justify-content-center">
-        <h2 class="display-5"><?php echo $intro->title; ?></h2>
-        <p class="text-center"><?php echo $intro->desc; ?></p>
-        <a class="btn btn-danger" href="<?php echo site_url('pages/product') ?>">Katalog Produk</a>
+<div class="container">
+    <div class="jumbotron p-3 p-md-5 rounded mt-4">
+        <div class="col-md-6 px-0">
+            <h1 class="display-5 font-italic"><?php echo $intro->title; ?></h1>
+            <p class="lead my-3"><?php echo $intro->desc; ?></p>
+            <a class="btn btn-danger" href="<?php echo site_url('pages/product') ?>">Katalog Produk</a>
+        </div>
     </div>
-</div>
-<div class="container-fluid">
     <h4 class="middle"><span>Produk Terbaru</span></h4>
     <div class="row">
         <?php foreach ($item as $key) : ?>

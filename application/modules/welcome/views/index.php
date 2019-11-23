@@ -9,7 +9,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Deskripsi</label>
-                        <textarea name="desc" class="form-control" rows="10"><?php echo $welcome->desc; ?></textarea>
+                        <textarea name="desc" class="form-control"><?php echo $welcome->desc; ?></textarea>
                     </div>
                 </div>
                 <div class="col-md-3">

@@ -18,6 +18,7 @@ class Setting extends MY_Controller
             $data['address'] = $this->input->post('address');
             $data['phone'] = $this->input->post('phone');
             $data['email'] = $this->input->post('email');
+            $data['whatsapp'] = $this->input->post('whatsapp');
             $this->setting->update($data, ['id' => 1]);
             $this->session->set_flashdata('success', 'Perubahan disimpan');
             redirect('setting');

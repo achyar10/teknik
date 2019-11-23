@@ -5,6 +5,29 @@ body{
 a {
     text-decoration: none !important;
 }
+.site-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.blog-footer {
+    padding: 1rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+.blog-post {
+    margin-bottom: 4rem;
+}
+.blog-post-title {
+    margin-bottom: .25rem;
+    font-size: 2.0rem;
+}
+.blog-post-meta {
+    margin-bottom: 10px;
+    color: #999;
+}
 /* .nav-tek{
     background-color: #fff;
 }

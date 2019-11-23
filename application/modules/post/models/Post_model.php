@@ -6,6 +6,9 @@ class Post_model extends CI_Model
 
     function get($arr = null, $limit = null, $offset = null)
     {
+        $this->db->order_by('post_id', 'desc');
+        $this->db->select('post.*, user_fullname');
+        $this->db->join('users', 'users.user_id = post.user_id', 'left');
         return $this->db->get_where('post', $arr, $limit, $offset);
     }
 

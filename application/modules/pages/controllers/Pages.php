@@ -7,7 +7,9 @@ class Pages extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('item/Item_model', 'item');
+        $this->load->model('category/Category_model', 'category');
         $this->load->model('contact/contact_model', 'contact');
+        $this->load->model('post/Post_model', 'post');
     }
 
     public function index()
@@ -46,9 +48,59 @@ class Pages extends CI_Controller {
 
     function product()
     {
+        $q = $this->input->get(NULL, TRUE);
+        $data['q'] = $q;
+        $params = [];
+
+        if (isset($q['cat']) && !empty($q['cat']) && $q['cat'] != '') {
+            $params['item.category_id'] = $q['cat'];
+        }
+
+        if (isset($q['product']) && !empty($q['product']) && $q['product'] != '') {
+            $product = $q['product'];
+            $params['item_name LIKE'] = "%$product%";
+        }
+
+        $data['item'] = $this->item->get($params)->result();
+        $data['cat'] = $this->category->get()->result();
         $data['title'] = 'Katalog Produk';
-        $data['item'] = $this->item->get()->result();
         $data['main'] = 'pages/product';
+        $this->load->view('layout_front', $data);
+    }
+
+    function post()
+    {
+        $this->load->library('pagination');
+        $page = $this->input->get('per_page');
+
+        $limit = 5;
+
+        if (!$page) :
+            $offset = 0;
+        else :
+            $offset = $page;
+        endif;
+        $params['post_status'] = 1;
+        $config['page_query_string'] = TRUE;
+        $config['enable_query_strings'] = TRUE;
+        $config['query_string_segment'] = 'per_page';
+        $config['base_url'] = site_url('pages/post');
+        $config['per_page'] = $limit;
+        $config['total_rows'] = $this->post->get($params)->num_rows();
+        $this->pagination->initialize($config);
+
+        $data['jlhpage'] = $page;
+        $data['post'] = $this->post->get($params, $limit, $offset)->result_array();
+        $data['title'] = 'Redaksi';
+        $data['main'] = 'pages/post';
+        $this->load->view('layout_front', $data);
+    }
+
+    function read($year, $month, $day, $id = null)
+    {
+        $data['post'] = $this->post->get(['post_id' => $id])->row();        
+        $data['title'] = 'Detail';
+        $data['main'] = 'pages/post_detail';
         $this->load->view('layout_front', $data);
     }
 

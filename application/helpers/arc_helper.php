@@ -92,7 +92,7 @@ if (!function_exists('page_url')) {
 
   function page_url($page = array())
   {
-    return site_url('page/' . $page['page_id'] . '/' . url_title($page['page_name'], '-', TRUE) . '.html');
+    return site_url('pages/read/' . $page['post_id'] . '/' . url_title($page['post_title'], '-', TRUE) . '.html');
   }
 }
 
@@ -103,9 +103,9 @@ if (!function_exists('posts_url')) {
     if (isset($posts['posts_url'])) {
       return $posts['posts_url'];
     } else {
-      list($date, $time) = explode(' ', $posts['posts_published_date']);
+      list($date, $time) = explode(' ', $posts['post_created_at']);
       list($year, $month, $day) = explode('-', $date);
-      return site_url('posts/read/' . $year . '/' . $month . '/' . $day . '/' . $posts['posts_id'] . '/' . url_title($posts['posts_title'], '-', TRUE) . '.html');
+      return site_url('pages/read/' . $year . '/' . $month . '/' . $day . '/' . $posts['post_id'] . '/' . url_title($posts['post_title'], '-', TRUE) . '.html');
     }
   }
 }
@@ -135,62 +135,5 @@ if (!function_exists('media_url')) {
   function media_url($name = '')
   {
     return base_url('media/' . $name);
-  }
-}
-
-function majors()
-{
-  $CI = &get_instance();
-  $CI->load->model('client/Client_model');
-  $CI->user_data = $CI->session->userdata('user_data');
-  $CI->client_id = $CI->user_data['client_id'];
-  $result = $CI->Client_model->get(['clients.client_id' => $CI->client_id])->row();
-  return $result->client_level;
-}
-
-function logo()
-{
-  $CI = &get_instance();
-  $CI->load->model('client/Client_model');
-  $CI->user_data = $CI->session->userdata('user_data');
-  $CI->client_id = $CI->user_data['client_id'];
-  $result = $CI->Client_model->get(['clients.client_id' => $CI->client_id])->row();
-  return $result->client_logo;
-}
-
-function expired()
-{
-  $CI = &get_instance();
-  $CI->load->model('client/Client_model');
-  $CI->user_data = $CI->session->userdata('user_data');
-  $CI->client_id = $CI->user_data['client_id'];
-
-  $profile = $CI->Client_model->get(['client_id' => $CI->client_id])->row();
-  $now = date('Y-m-d');
-  $expired = $profile->client_due_date;
-
-  if ($expired < $now) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function validUntil()
-{
-  $CI = &get_instance();
-  $CI->load->model('client/Client_model');
-  $CI->user_data = $CI->session->userdata('user_data');
-  $CI->client_id = $CI->user_data['client_id'];
-
-  $profile = $CI->Client_model->get(['client_id' => $CI->client_id])->row();
-  $now = date('Y-m-d');
-  $expired = $profile->client_due_date;
-  $valid = strtotime($expired) - strtotime($now);
-
-  if ($valid / (24 * 60 * 60) < 8) {
-    return true;
-  } else {
-    return false;
   }
 }

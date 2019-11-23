@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3">
+<div class="container mt-3">
     <h3>Profil</h3>
     <p align="justify"><?php echo $profile->desc; ?></p>
     <h3>Visi</h3>

@@ -24,6 +24,7 @@ class Post extends MY_Controller
 
             $data['post_title'] = $this->input->post('title');
             $data['post_desc'] = $this->input->post('desc');
+            $data['user_id'] = $this->uid;
             $this->post->insert($data);
             $this->session->set_flashdata('success', 'Data disimpan');
             redirect('post');

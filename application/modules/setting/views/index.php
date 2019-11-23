@@ -15,6 +15,10 @@
                         <label for="">Email</label>
                         <input type="text" class="form-control" name="email" value="<?php echo $setting->email ?>" required>
                     </div>
+                    <div class="form-group">
+                        <label for="">Whatsapp</label>
+                        <input type="text" class="form-control" name="whatsapp" value="<?php echo $setting->whatsapp ?>" required>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <button type="submit" class="btn btn-success btn-block mt-3">Simpan</button>

@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Kami Menjual Hydraulic Tools, Hand Tools, Air Tools, Tubing Tools, Screwdrivers, Power Tools, Generator, Air Compressor, Pompa Air, Safety Equipment">
+    <meta name="author" content="bakatteknikmandiri">
+    <meta name="description" content="Kami Menjual Hydraulic Tools, Hand Tools, Air Tools, Tubing Tools, Screwdrivers, Power Tools, Generator, Air Compressor, Pompa Air, Safety Equipment, Gerinda">
+    <meta name="keywords" content="TEKNIK, MANDIRI, MESIN, GERINDA, STANLIS, PAGAR, BENGKEL">
+    <meta property="og:url" content="http://www.bakatteknikmandiri.com">
+    <meta property="og:type" content="website">
     <title>Bakat Teknik Mandiri | <?php echo $title; ?></title>
     <link rel="shortcut icon" href="<?php echo media_url() ?>/images/logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo media_url() ?>/frontend/css/bootstrap.min.css">
@@ -13,24 +17,28 @@
     <link rel=" stylesheet" href="<?php echo media_url() ?>/css/infinite-slider.css"">
     <link href=" <?php echo media_url() ?>css/toastr.min.css" rel="stylesheet" type="text/css" />
     <link href=" <?php echo media_url() ?>css/icons.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-    <div class=" sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="<?= media_url() ?>/images/logo.png" alt="" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-3">
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(1) == '') ? 'active' : '' ?>" href="<?= site_url() ?>">Beranda <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'profile') ? 'active' : '' ?>" href="<?= site_url('pages/profile') ?>">Profil</a>
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'product') ? 'active' : '' ?>"" href=" <?= site_url('pages/product') ?>">Katalog Produk</a>
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>" href="<?= site_url('pages/contact') ?>">Hubungi Kami</a>
-                    <a class="nav-item nav-link mr-3" href="<?= site_url('auth/log') ?>"><i class="mdi mdi-account"></i> Login</a>
+    <div class="site-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="<?= media_url() ?>/images/logo.png" alt="" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-3">
+                        <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(1) == '') ? 'active' : '' ?>" href="<?= site_url() ?>">Beranda <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'profile') ? 'active' : '' ?>" href="<?= site_url('pages/profile') ?>">Profil</a>
+                        <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'product') ? 'active' : '' ?>"" href=" <?= site_url('pages/product') ?>">Katalog Produk</a>
+                        <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'post') ? 'active' : '' ?>"" href=" <?= site_url('pages/post') ?>">Redaksi</a>
+                        <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>" href="<?= site_url('pages/contact') ?>">Hubungi Kami</a>
+                        <a class="nav-item nav-link mr-3" href="<?= site_url('auth/log') ?>"><i class="mdi mdi-account"></i> Login</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -45,27 +53,28 @@
     $partner = $this->db->get_where('client', ['client_status' => 1])->result();
     ?>
     <div style="margin-top:100px"></div>
-    <h4 class="middle"><span>Partner Kami</span></h4>
-    <div class="customer-logos">
-        <?php foreach ($partner as $row) : ?>
-            <div class="slide">
-                <img src="<?php echo upload_url('client/' . $row->client_logo) ?>">
-            </div>
-        <?php endforeach; ?>
+    <div class="container">
+        <h4 class="middle"><span>Partner Kami</span></h4>
+        <div class="customer-logos">
+            <?php foreach ($partner as $row) : ?>
+                <div class="slide">
+                    <img src="<?php echo upload_url('client/' . $row->client_logo) ?>">
+                </div>
+            <?php endforeach; ?>
 
+        </div>
     </div>
     <footer class="page-footer font-small footer pt-4 mt-3">
-        <div class="container-fluid text-center text-md-left">
+        <div class="container text-center text-md-left">
             <div class="row">
-                <div class="col-md-9 mt-md-0 mt-3">
+                <div class="col-md-9 mt-md-0 mt-3 p-4">
                     <h5 class="text-uppercase"><?php echo $footer->title; ?></h5>
                     <p><?php echo $footer->address; ?> <br>
                         <?php echo $footer->phone; ?> <br>
                         <?php echo $footer->email; ?></p>
                 </div>
-                <hr class="clearfix w-100 d-md-none pb-3">
-                <div class="col-md-3 mb-md-0 mb-3 d-none d-sm-block d-sm-none d-md-block">
-                    <h5 class="text-uppercase">Links</h5>
+                <div class="col-md-3 mb-md-0 mb-3 d-none d-sm-block d-sm-none d-md-block p-4">
+                    <h5 class=" text-uppercase">Links</h5>
                     <ul class="list-unstyled">
                         <li>
                             <a href="#!">Home</a>
@@ -82,9 +91,10 @@
                 <!-- Grid column -->
             </div>
         </div>
-        <div class="footer-copyright text-center py-3">© <?php echo date('Y'); ?> Copyright
-            <a href="<? site_url('/') ?>"> bakatteknikmandiri.com</a>
-        </div>
+        <footer class="blog-footer">
+            <br>
+            <p>© <?php echo date('Y'); ?> Copyright <a href="<? site_url('/') ?>"> bakatteknikmandiri.com</a></p>
+        </footer>
     </footer>
 
     <script src="<?php echo media_url() ?>/frontend/js/jquery-3.3.1.min.js"></script>
@@ -92,6 +102,25 @@
     <script src="<?php echo media_url() ?>/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo media_url() ?>js/toastr.min.js"></script>
     <script src="<?php echo media_url() ?>js/imgLiquid.js"></script>
+
+    <script type='application/ld+json'>
+        {
+            "@context": "http://www.schema.org",
+            "@type": "AutoPartsStore",
+            "name": "Bakat Teknik Mandiri",
+            "url": "http://bakatteknikmandiri.com",
+            "priceRange": "$",
+            "description": "jual macam macam mesin",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "bogor",
+                "addressRegion": "jawa barat",
+                "addressCountry": "indonesia"
+            },
+            "openingHours": "Mo 06:00-23:00 Tu 01:00-01:00 We 01:00-01:00 Th 01:00-01:00 Fr 01:00-01:00 Sa 01:00-01:00 Su 01:00-01:00"
+        }
+    </script>
+
     <!-- WhatsHelp.io widget -->
     <script type="text/javascript">
         (function() {
