@@ -17,6 +17,7 @@
     <link rel=" stylesheet" href="<?php echo media_url() ?>/css/infinite-slider.css"">
     <link href=" <?php echo media_url() ?>css/toastr.min.css" rel="stylesheet" type="text/css" />
     <link href=" <?php echo media_url() ?>css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href=" <?php echo media_url() ?>css/floating-wpp.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -96,11 +97,13 @@
             <p>© <?php echo date('Y'); ?> Copyright <a href="<? site_url('/') ?>"> bakatteknikmandiri.com</a></p>
         </footer>
     </footer>
+    <div id="myButton"></div>
 
     <script src="<?php echo media_url() ?>/frontend/js/jquery-3.3.1.min.js"></script>
     <script src="<?php echo media_url() ?>/js/slick.js"></script>
     <script src="<?php echo media_url() ?>/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo media_url() ?>js/toastr.min.js"></script>
+    <script src="<?php echo media_url() ?>js/floating-wpp.min.js"></script>
     <script src="<?php echo media_url() ?>js/imgLiquid.js"></script>
 
     <script type='application/ld+json'>
@@ -121,27 +124,19 @@
         }
     </script>
 
-    <!-- WhatsHelp.io widget -->
     <script type="text/javascript">
-        (function() {
-            var options = {
-                whatsapp: "+62<?php echo substr($footer->whatsapp, 1) ?>", // WhatsApp number
-                call_to_action: "Chat Kami", // Call to action
-                position: "right", // Position may be 'right' or 'left'
-            };
-            var proto = document.location.protocol,
-                host = "getbutton.io",
-                url = proto + "//static." + host;
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url + '/widget-send-button/js/init.js';
-            s.onload = function() {
-                WhWidgetSendButton.init(host, proto, options);
-            };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
+        $(function() {
+            $('#myButton').floatingWhatsApp({
+                phone: '<?php echo $footer->whatsapp; ?>',
+                popupMessage: 'Hallo, ada yang bisa kami bantu?',
+                message: "Saya mau pesan ....",
+                showPopup: true,
+                showOnIE: false,
+                position: 'right',
+                headerTitle: 'Selamat Datang',
+                buttonImage: '<img src="<?php echo media_url('images/whatsapp.svg') ?>" />'
+            });
+        });
     </script>
 
     <script>
