@@ -9,11 +9,29 @@
 
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
+                <li>
+                    <a href="<?php echo site_url('/') ?>" target="_blank">
+                        <i class="mdi mdi-google-physical-web"></i>
+                        <span> Website Utama </span>
+                    </a>
+                </li>
                 <li class="menu-title">Menu</li>
                 <li>
                     <a href="<?php echo site_url('home') ?>">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span> Beranda </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('welcome') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Halaman Utama </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('welcome/profile') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Profil Perusahaan </span>
                     </a>
                 </li>
                 <li>
@@ -26,6 +44,18 @@
                     <a href="<?php echo site_url('category') ?>">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span> Kategori Produk </span>
+                    </a>
+                </li>
+                <?php
+                $inbox = count($this->db->get_where('contact', ['contact_status' => 0])->result());
+                ?>
+                <li>
+                    <a href="<?php echo site_url('contact') ?>">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span> Pesan Masuk </span>
+                        <?php if ($inbox > 0) : ?>
+                            <span class="badge badge-danger float-right"><?php echo $inbox ?></span>
+                        <?php endif ?>
                     </a>
                 </li>
                 <li>

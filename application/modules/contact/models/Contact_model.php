@@ -6,7 +6,7 @@ class Contact_model extends CI_Model
 
     function get($arr = null, $limit = null, $offset = null)
     {
-        $this->db->order_by('contact', 'desc');
+        $this->db->order_by('contact_id', 'desc');
         return $this->db->get_where('contact', $arr, $limit, $offset);
     }
 

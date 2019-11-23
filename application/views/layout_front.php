@@ -27,11 +27,9 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav mr-3">
                     <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(1) == '') ? 'active' : '' ?>" href="<?= site_url() ?>">Beranda <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'profile') ? 'active' : '' ?>" href="<?= site_url('front/profile') ?>">Profil</a>
-                    <a class="nav-item nav-link mr-3" href="#">Katalog Produk</a>
-                    <!-- <a class="nav-item nav-link mr-3" href="#">Partner</a> -->
-                    <!-- <a class="nav-item nav-link mr-3" href="#">Galeri</a> -->
-                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>" href="<?= site_url('front/contact') ?>">Hubungi Kami</a>
+                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'profile') ? 'active' : '' ?>" href="<?= site_url('pages/profile') ?>">Profil</a>
+                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'product') ? 'active' : '' ?>"" href=" <?= site_url('pages/product') ?>">Katalog Produk</a>
+                    <a class="nav-item nav-link mr-3 <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>" href="<?= site_url('pages/contact') ?>">Hubungi Kami</a>
                     <a class="nav-item nav-link mr-3" href="<?= site_url('auth/log') ?>"><i class="mdi mdi-account"></i> Login</a>
                 </div>
             </div>
@@ -44,17 +42,17 @@
     <!-- Footer -->
     <?php
     $footer = $this->db->get_where('setting', ['id' => 1])->row();
+    $partner = $this->db->get_where('client', ['client_status' => 1])->result();
     ?>
+    <div style="margin-top:100px"></div>
     <h4 class="middle"><span>Partner Kami</span></h4>
     <div class="customer-logos">
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image1.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image2.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image3.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image4.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image5.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image6.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image7.png"></div>
-        <div class="slide"><img src="https://www.solodev.com/assets/carousel/image8.png"></div>
+        <?php foreach ($partner as $row) : ?>
+            <div class="slide">
+                <img src="<?php echo upload_url('client/' . $row->client_logo) ?>">
+            </div>
+        <?php endforeach; ?>
+
     </div>
     <footer class="page-footer font-small footer pt-4 mt-3">
         <div class="container-fluid text-center text-md-left">
@@ -90,9 +88,10 @@
     </footer>
 
     <script src="<?php echo media_url() ?>/frontend/js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="<?php echo media_url() ?>/js/slick.js"></script>
     <script src="<?php echo media_url() ?>/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo media_url() ?>js/toastr.min.js"></script>
+    <script src="<?php echo media_url() ?>js/imgLiquid.js"></script>
     <!-- WhatsHelp.io widget -->
     <script type="text/javascript">
         (function() {
@@ -118,6 +117,16 @@
 
     <script>
         $(document).ready(function() {
+            $(".imgLiquidFill").imgLiquid({
+                fill: true,
+                horizontalAlign: "center",
+                verticalAlign: "top"
+            });
+            $(".imgLiquidNoFill").imgLiquid({
+                fill: false,
+                horizontalAlign: "center",
+                verticalAlign: "50%"
+            });
             $('.customer-logos').slick({
                 slidesToShow: 6,
                 slidesToScroll: 1,
