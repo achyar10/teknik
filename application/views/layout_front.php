@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="bakatteknikmandiri">
-    <meta name="description" content="Kami Menjual Hydraulic Tools, Hand Tools, Air Tools, Tubing Tools, Screwdrivers, Power Tools, Generator, Air Compressor, Pompa Air, Safety Equipment, Gerinda">
+    <meta name="title" content="Bakat Teknik Mandiri">
+    <meta name="description" content="Kami Menjual Pembuatan Alat, Mesin, Logam, Stainless, Besi, Alumunium, Galvanis">
     <meta name="keywords" content="TEKNIK, MANDIRI, MESIN, GERINDA, STANLIS, PAGAR, BENGKEL">
     <meta property="og:url" content="http://www.bakatteknikmandiri.com">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bakat Teknik Mandiri">
+
+    <script type='application/ld+json'>
+        {
+            "@context": "http://www.schema.org",
+            "@type": "AutoPartsStore",
+            "name": "Bakat Teknik Mandiri",
+            "url": "http://bakatteknikmandiri.com",
+            "priceRange": "$",
+            "description": "Kami Menjual Pembuatan Alat, Mesin, Logam, Stainless, Besi, Alumunium, Galvanis",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Jl. Cilendek Blok Istiqomah No.42, RT.01/RW.4, Cilendek Tim., Kec. Bogor Bar., Kota Bogor, Jawa Barat 16112",
+                "addressRegion": "jawa barat",
+                "addressCountry": "indonesia"
+            }
+        }
+    </script>
+
     <title>Bakat Teknik Mandiri | <?php echo $title; ?></title>
     <link rel="shortcut icon" href="<?php echo media_url() ?>/images/logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo media_url() ?>/frontend/css/bootstrap.min.css">
@@ -105,24 +125,6 @@
     <script src="<?php echo media_url() ?>js/toastr.min.js"></script>
     <script src="<?php echo media_url() ?>js/floating-wpp.min.js"></script>
     <script src="<?php echo media_url() ?>js/imgLiquid.js"></script>
-
-    <script type='application/ld+json'>
-        {
-            "@context": "http://www.schema.org",
-            "@type": "AutoPartsStore",
-            "name": "Bakat Teknik Mandiri",
-            "url": "http://bakatteknikmandiri.com",
-            "priceRange": "$",
-            "description": "jual macam macam mesin",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "bogor",
-                "addressRegion": "jawa barat",
-                "addressCountry": "indonesia"
-            },
-            "openingHours": "Mo 06:00-23:00 Tu 01:00-01:00 We 01:00-01:00 Th 01:00-01:00 Fr 01:00-01:00 Sa 01:00-01:00 Su 01:00-01:00"
-        }
-    </script>
 
     <script type="text/javascript">
         $(function() {
